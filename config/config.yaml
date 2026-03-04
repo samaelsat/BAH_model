@@ -1,0 +1,39 @@
+data:
+  bucket_path: gs://ah-classify/data/bifurcated/
+  split_paths:
+    train:
+      0: gs://ah-classify/data/split/train_0.txt
+      1: gs://ah-classify/data/split/train_1.txt
+    val:
+      0: gs://ah-classify/data/split/val_0.txt
+      1: gs://ah-classify/data/split/val_1.txt
+    test:
+      0: gs://ah-classify/data/split/test_0.txt
+      1: gs://ah-classify/data/split/test_1.txt
+  num_frames: 32
+  frame_size: 250
+  sample_rate: 16000
+  max_duration: 10
+  batch_size: 8
+  data_fraction: 0.1
+model:
+  video:
+    base_cnn: resnet50
+    dropout: 0.2
+  audio:
+    encoder_dim: 256
+  fusion:
+    hidden_dim: 512
+    num_heads: 8
+    num_layers: 4
+training:
+  learning_rate: 0.0001
+  weight_decay: 1.0e-5
+  epochs: 15
+  early_stopping:
+    monitor: val_loss
+    patience: 5
+random_forest:
+  n_estimators: 300
+  max_depth: 8
+  min_samples_split: 4
