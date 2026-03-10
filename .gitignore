@@ -1,17 +1,46 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
+*.pyo
+*.pyd
 *.egg-info/
 dist/
 build/
 *.egg
+.eggs/
 
 # Virtual environments
-.venv/
 venv/
-ENV/
+env/
+.venv/
+
+# Model checkpoints & outputs (large files — don't commit)
+*.pth
+*.pt
+*.ckpt
+/outputs/
+/tmp/
+
+# Data (never commit raw videos or personal data)
+*.mp4
+*.wav
+*.yml
+*.yaml
+data/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# GCP credentials (NEVER commit)
+*.json
+service_account*.json
+application_default_credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
 
 # IDE
 .vscode/
@@ -19,23 +48,7 @@ ENV/
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Docker
-*.tar
-
-# Logs & checkpoints
-logs/
-checkpoints/
-*.h5
-*.pkl
-
-# Data / PDFs
-*.pdf
-tmp/pdf_texts/
-
-# Byte-compiled / cached
-*.pyc
+# Logs
+*.log
+runs/
+wandb/
